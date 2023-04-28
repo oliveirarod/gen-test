@@ -22,4 +22,6 @@ describe('DisplayDataComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // TODO: criar testes para as funções do componente
 });

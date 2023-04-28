@@ -1,17 +1,17 @@
-mat-card{
-    width: 100%;
-    height: fit-content;
+mat-card {
+  width: 100%;
+  height: fit-content;
 }
 
-.cardMargin{
-    margin-bottom: 5em;
+.cardMargin {
+  margin-bottom: 5em;
 }
 
-.listMargins{
-    margin-top: 1em;
+.listMargins {
+  margin-top: 1em;
 }
 
-.btnAlign{
-    float: right;
-    margin-top: -4px;
+.btnAlign {
+  float: right;
+  margin-top: -4px;
 }
