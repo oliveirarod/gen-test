@@ -1,8 +1,17 @@
 <!-- TODO: Criar um visual melhor -->
 <div class="welcome-container">
   <div class="text-block">
-    <h2>Welcome to my application!</h2>
-    <p>I hope that you might enjoy it.</p>
-    <p>The side menu is there to ease the navigation of this web app.</p>
+    <h1 class="title">Welcome to my application!</h1>
+
+    <div class="paragraphs">
+      <p>
+        Use the side menu to easily navigate through the app, or jump straight
+        to the posts if you prefer.
+      </p>
+    </div>
   </div>
+
+  <button class="button-gen" (click)="navigateToPosts()">
+    Posts page
+  </button>
 </div>

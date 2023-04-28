@@ -8,6 +8,10 @@
   .mat-toolbar {
     background-color: $main-color;
     color: $white;
+
+    span {
+      margin-left: 1rem;
+    }
   }
 
   .mat-drawer-container {
