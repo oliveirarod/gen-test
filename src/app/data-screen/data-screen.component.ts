@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 @Component({
   selector: "app-data-screen",
   templateUrl: "./data-screen.component.html",
-  styleUrls: ["./data-screen.component.css"],
+  styleUrls: ["./data-screen.component.scss"],
 })
 export class DataScreenComponent implements OnInit {
   // Recieving data from EditDialog component
