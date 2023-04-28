@@ -1,21 +1,28 @@
-mat-drawer-container {
-  display: block;
-  height: 100%; /* TODO: Ajustar, está quebrando por causa do navbar */
-}
+@import "../scss/variables.scss";
 
-mat-list-item:hover {
-  cursor: pointer;
-}
+.wrapper {
+  height: 100vh; // TODO: Ajustar para o mobile (opcional)
+  display: flex;
+  flex-direction: column;
 
-.whiteText {
-  color: white;
-}
+  .mat-toolbar {
+    background-color: $main-color;
+    color: $white;
+  }
 
-mat-drawer {
-  background-color: #7ebc0a;
-}
+  .mat-drawer-container {
+    flex: 1;
 
-.toolbarGen {
-  margin-bottom: 0.1em;
-  background-color: #7ebc0a;
+    .mat-drawer {
+      background-color: $main-color;
+
+      .mat-list-item {
+        color: $white;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }

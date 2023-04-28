@@ -1,3 +1,12 @@
-.textAlign {
-  text-align: center;
+@import '../../scss/variables.scss';
+@import '../../scss/inheritance.scss';
+
+.welcome-container {
+  @extend %flex-text-center;
+  height: 100%;
+
+  .text-block {
+    text-align: center;
+    
+  }
 }
