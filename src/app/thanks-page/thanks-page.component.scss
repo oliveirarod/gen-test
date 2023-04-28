@@ -1,0 +1,11 @@
+@import '../../scss/variables.scss';
+@import '../../scss/inheritance.scss';
+
+.thanks-container {
+	@extend %display-flex-center;
+	flex-direction: column;
+	text-align: justify;
+	height: 100%;
+	width: 60vw;
+	margin: auto;
+}

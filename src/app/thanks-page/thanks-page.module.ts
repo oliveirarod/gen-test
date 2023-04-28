@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { ThanksPageRoutingModule } from './thanks-page-routing.module';
 import { ThanksPageComponent } from './thanks-page.component';
 
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     ThanksPageComponent
@@ -11,6 +13,7 @@ import { ThanksPageComponent } from './thanks-page.component';
   imports: [
     CommonModule,
     ThanksPageRoutingModule,
+    MatIconModule
   ]
 })
 export class ThanksPageModule { }
