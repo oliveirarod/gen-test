@@ -1,22 +1,20 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class GetDataService {
-
   // Service used to get data from given URL
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
-  jsonDataUrl = 'http://jsonplaceholder.typicode.com';
-  postsUrl = '/posts';
+  jsonDataUrl = "http://jsonplaceholder.typicode.com";
+  postsUrl = "/posts";
   // usersUrl = '/users';
-  
 
   getPostsData() {
-    console.log('pegando coisas do backend')
-   return this.httpClient.get(this.jsonDataUrl+this.postsUrl);
+    console.log("pegando coisas do backend");
+    return this.httpClient.get(this.jsonDataUrl + this.postsUrl);
   }
 
   // getUsersData(){

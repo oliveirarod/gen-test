@@ -13,4 +13,6 @@ describe('GetDataService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  // TODO: Criar testes para a função getPostsData()
 });
