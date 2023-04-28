@@ -7,7 +7,7 @@
 
   .mat-toolbar {
     background-color: $main-color;
-    color: $white;
+    color: $white-text;
 
     span {
       margin-left: 1rem;
@@ -19,12 +19,15 @@
 
     .mat-drawer {
       background-color: $main-color;
+      width: 250px;
 
       .mat-list-item {
-        color: $white;
+        padding-left: 1rem;
+        color: $white-text;
 
         &:hover {
           cursor: pointer;
+          background: $main-color-hover;
         }
       }
     }
