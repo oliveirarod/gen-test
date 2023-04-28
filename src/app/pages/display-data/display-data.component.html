@@ -1,0 +1,27 @@
+<!-- Iterating through data recieved from given URL in get-data service -->
+<!-- TODO: Melhorar visual -->
+<div class="posts-container">
+  <h1 class="title">Posts:</h1>
+
+  <mat-list>
+    <mat-card *ngFor="let post of postsDataFromUrl">
+      <mat-card-header>
+        <mat-card-title>Title:</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="cardContentAlign">
+          {{ post.title }}
+
+          <!-- <button
+            mat-raised-button
+            (click)="openEditDialog(post)"
+            class="btnAlign"
+          >
+            <mat-icon>edit</mat-icon>
+          </button> -->
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-list>
+</div>

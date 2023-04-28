@@ -1,5 +1,5 @@
-@import '../../scss/variables.scss';
-@import '../../scss/inheritance.scss';
+@import '../../../scss/inheritance.scss';
+@import '../../../scss/mixins.scss';
 
 .thanks-container {
 	@extend %display-flex-center;
@@ -8,4 +8,8 @@
 	height: 100%;
 	width: 60vw;
 	margin: auto;
+
+	.title {
+		@include title;
+	}
 }

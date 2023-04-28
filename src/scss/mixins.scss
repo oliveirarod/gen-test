@@ -1,0 +1,5 @@
+@mixin title($mb: 3rem) {
+	font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: $mb;
+}

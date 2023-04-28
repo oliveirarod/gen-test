@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { ActivatedRoute } from "@angular/router";
 import { GetDataService } from "services/get-data.service";
-import { EditDialogComponent } from "../edit-dialog/edit-dialog.component";
+import { EditDialogComponent } from "../../components/edit-dialog/edit-dialog.component";
 
 @Component({
   selector: "app-display-data",

@@ -5,7 +5,7 @@ import {
   MAT_DIALOG_DATA,
 } from "@angular/material/dialog";
 import { Router } from "@angular/router";
-import { DisplayDataComponent } from "../display-data/display-data.component";
+import { DisplayDataComponent } from "../../pages/display-data/display-data.component";
 
 // Interface created to specify data type to be used with MAT_DIALOG_DATA inside the constructor
 export interface ItemData {

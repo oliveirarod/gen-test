@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { WelcomePageComponent } from "./welcome-page/welcome-page.component";
+import { WelcomePageComponent } from "./pages/welcome-page/welcome-page.component";
 
 // Create a default route to facilitate maintenance
 const DEFAULT_ROUTE = "welcome-page";
@@ -9,28 +9,28 @@ const routes: Routes = [
   {
     path: "display-data",
     loadChildren: () =>
-      import("./display-data/display-data.module").then(
+      import("./pages/display-data/display-data.module").then(
         (m) => m.DisplayDataModule
       ),
   },
   {
     path: "edit-dialog",
     loadChildren: () =>
-      import("./edit-dialog/edit-dialog.module").then(
+      import("./components/edit-dialog/edit-dialog.module").then(
         (m) => m.EditDialogModule
       ),
   },
   {
     path: "data-screen",
     loadChildren: () =>
-      import("./data-screen/data-screen.module").then(
+      import("./pages/data-screen/data-screen.module").then(
         (m) => m.DataScreenModule
       ),
   },
   {
     path: "thanks-page",
     loadChildren: () =>
-      import("./thanks-page/thanks-page.module").then(
+      import("./pages/thanks-page/thanks-page.module").then(
         (m) => m.ThanksPageModule
       ),
   },

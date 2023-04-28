@@ -1,5 +1,5 @@
-@import '../../scss/variables.scss';
-@import '../../scss/inheritance.scss';
+@import '../../../scss/inheritance.scss';
+@import '../../../scss/mixins.scss';
 
 .welcome-container {
   @extend %display-flex-center;
@@ -8,6 +8,10 @@
 
   .text-block {
     text-align: center;
+
+    .title {
+      @include title;
+    }
   }
 
   .button-gen {

@@ -1,0 +1,15 @@
+@import '../../../scss/mixins.scss';
+
+.posts-container {
+  padding: 2rem;
+
+  .title {
+    @include title(1.5rem);
+  }
+
+  .mat-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
