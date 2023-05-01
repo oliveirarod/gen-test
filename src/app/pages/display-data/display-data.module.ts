@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 
 import { DisplayDataRoutingModule } from "./display-data-routing.module";
 import { DisplayDataComponent } from "./display-data.component";
+import { DirectivesModule } from "src/app/directives/directives.module";
 
 // Material Design imports below
 import { MatListModule } from "@angular/material/list";
@@ -16,6 +17,7 @@ import { MatButtonModule } from "@angular/material/button";
   imports: [
     CommonModule,
     DisplayDataRoutingModule,
+    DirectivesModule,
     MatListModule,
     MatCardModule,
     MatIconModule,

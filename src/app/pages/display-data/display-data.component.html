@@ -6,21 +6,21 @@
   <mat-list>
     <mat-card *ngFor="let post of postsDataFromUrl">
       <mat-card-header>
-        <mat-card-title>Title:</mat-card-title>
+        <mat-card-title appEllipsis>
+          {{ post.title }}
+        </mat-card-title>
+
+        <button
+          mat-icon-button
+          (click)="openEditDialog(post)"
+          class="edit-button"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
       </mat-card-header>
 
       <mat-card-content>
-        <div class="cardContentAlign">
-          {{ post.title }}
-
-          <!-- <button
-            mat-raised-button
-            (click)="openEditDialog(post)"
-            class="btnAlign"
-          >
-            <mat-icon>edit</mat-icon>
-          </button> -->
-        </div>
+        <p appEllipsis [maxLength]="130">{{ post.body }}</p>
       </mat-card-content>
     </mat-card>
   </mat-list>
