@@ -13,7 +13,6 @@ export class WelcomePageComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // TODO: Criar teste
   navigateToPosts() {
     this.router.navigate(['/display-data']);
   }

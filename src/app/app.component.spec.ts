@@ -15,6 +15,4 @@ describe("AppComponent", () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
-  
-  // TODO: Dar uma olhada nesses testes
 });

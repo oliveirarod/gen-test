@@ -44,6 +44,7 @@ export class EditDialogComponent implements OnInit {
         itemDataBody: this.dataFromItem.body,
       },
     ]);
+
     this.dialogRef.close();
   }
 }

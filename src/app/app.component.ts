@@ -1,10 +1,7 @@
 import { Component } from "@angular/core";
 import { MatDrawer } from "@angular/material/sidenav";
 
-interface MatListItemModel {
-  name: string;
-  router: string;
-}
+import { MatListItemModel } from "./models/MatListItem";
 
 @Component({
   selector: "app-root",

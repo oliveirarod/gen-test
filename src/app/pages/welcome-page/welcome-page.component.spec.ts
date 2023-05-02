@@ -26,4 +26,10 @@ describe("WelcomePageComponent", () => {
   it("should create", () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call router navigate method when navigateToPosts is called', () => {
+    spyOn(router, 'navigate');
+    component.navigateToPosts();
+    expect(router.navigate).toHaveBeenCalledWith(['/display-data']);
+  });
 });

@@ -19,7 +19,20 @@ describe("DataScreenComponent", () => {
           useValue: {
             snapshot: {
               paramMap: {
-                get: (key: string) => '123', // Replace with the desired parameter value
+                get: (param: string) => {
+                  switch (param) {
+                    case "itemDataId":
+                      return "1";
+                    case "itemDataUserId":
+                      return "1";
+                    case "itemDataTitle":
+                      return "Test Title";
+                    case "itemDataBody":
+                      return "Test Body";
+                    default:
+                      return;
+                  }
+                },
               },
             } as ActivatedRouteSnapshot,
           },
@@ -39,5 +52,27 @@ describe("DataScreenComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  // TODO: Criar testes
+  it('should revert changes to original values', () => {
+    component.revertChanges();
+    expect(component.itemData.title).toBe('Test Title');
+    expect(component.itemData.body).toBe('Test Body');
+  });
+
+  it('should apply changes to item data', () => {
+    component.itemData.title = 'New Title';
+    component.itemData.body = 'New Body';
+
+    component.applyChanges();
+    expect(component.itemData.title).toBe('New Title');
+    expect(component.itemData.body).toBe('New Body');
+  });
+
+  it('should discard changes and navigate back to display-data', () => {
+    component.itemData.title = 'New Title';
+    component.itemData.body = 'New Body';
+
+    component.discardChanges();
+    expect(component.itemData.title).toBe('Test Title');
+    expect(component.itemData.body).toBe('Test Body');
+  });
 });
