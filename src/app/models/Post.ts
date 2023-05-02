@@ -3,4 +3,5 @@ export interface Post {
 	userId: string | null,
 	title: string | null,
 	body: string | null,
+	image?: string,
 }

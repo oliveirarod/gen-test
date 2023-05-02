@@ -1,5 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+
+import { Post } from "src/app/models/Post";
 
 @Injectable({
   providedIn: "root",
@@ -10,14 +13,13 @@ export class GetDataService {
 
   jsonDataUrl = "http://jsonplaceholder.typicode.com";
   postsUrl = "/posts";
-  // usersUrl = '/users';
+  // usersUrl = "/users";
 
-  getPostsData() {
-    console.log("pegando coisas do backend");
-    return this.httpClient.get(this.jsonDataUrl + this.postsUrl);
+  getPostsData(): Observable<Post[]> {
+    return this.httpClient.get<Post[]>(this.jsonDataUrl + this.postsUrl);
   }
 
   // getUsersData(){
-  //   return this.httpClient.get(this.jsonDataUrl+this.usersUrl);
+  //   return this.httpClient.get(this.jsonDataUrl + this.usersUrl);
   // }
 }

@@ -1,39 +1,84 @@
-@import '../../../scss/mixins.scss';
-@import '../../../scss/variables.scss';
+@import "../../../scss/variables.scss";
+@import "../../../scss/inheritance.scss";
+@import "../../../scss/mixins.scss";
+
+.main-post-container {
+  @extend %display-flex-center;
+  width: 100%;
+  height: 60vh;
+  background: #efd1aa;
+
+  .main-post {
+    height: 85%;
+    width: 70%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+
+    .post-text {
+      @extend %display-flex-center;
+      flex-direction: column;
+      margin: 2rem;
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 300;
+        line-height: 1.25;
+      }
+
+      p {
+        text-align: justify;
+        color: $light-grey-text;
+        line-height: 1.5;
+        font-weight: 300;
+      }
+    }
+
+    .post-image {
+      @include image-post(0 0.5rem 0.5rem 0);
+    }
+  }
+}
 
 .posts-container {
   padding: 2rem;
 
   .title {
-    @include title(1.5rem);
+    font-weight: 300;
   }
 
   .mat-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 1.25rem;
 
+    @media (min-width: 576px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 876px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
     .mat-card {
+      padding: 0;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-    }
-    .mat-card-header {
       position: relative;
-      height: 100%;
-      display: flex;
-      align-items: center;
 
-      .mat-card-title {
-        font-size: 1.25rem;
-        font-weight: 400;
-        padding-top: 1rem;
+      @media (min-width: 1180px) {
+        justify-content: space-between;
       }
 
       .edit-button {
         position: absolute;
-        top: -0.75rem;
-        right: -0.75rem;
+        top: 0.2rem;
+        right: 0.2rem;
+        color: white;
+        backdrop-filter: blur(5px);
+        padding: 0.5rem;
+        cursor: pointer;
 
         .mat-icon {
           font-size: 1rem;
@@ -44,12 +89,38 @@
           }
         }
       }
-    }
 
-    .mat-card-content {
-      padding: 1rem;
-      text-align: justify;
-      color: $light-grey-text;
+      .post-image {
+        @include image-post(0.5rem 0.5rem 0 0);
+      }
+
+      .mat-card-content {
+        padding: 1.5rem;
+        text-align: justify;
+
+        .mat-card-title {
+          font-size: 1.25rem;
+          font-weight: 400;
+          padding-bottom: 1rem;
+        }
+
+        p {
+          color: $light-grey-text;
+        }
+      }
+    }
+  }
+
+  .show-more-button {
+    @extend %display-flex-center;
+    margin-top: 2rem;
+
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 1rem;
+      color: $main-color;
     }
   }
 }

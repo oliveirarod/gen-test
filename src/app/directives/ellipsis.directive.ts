@@ -4,7 +4,7 @@ import { Directive, ElementRef, AfterViewInit, Input } from "@angular/core";
   selector: "[appEllipsis]",
 })
 export class EllipsisDirective implements AfterViewInit {
-  @Input() maxLength: number = 40;
+  @Input() maxLength: number = 30;
 
   constructor(private el: ElementRef) {}
 

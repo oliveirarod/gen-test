@@ -6,6 +6,8 @@ import { DisplayDataComponent } from "./display-data.component";
 import { EditDialogComponent } from "src/app/components/edit-dialog/edit-dialog.component";
 import { DirectivesModule } from "src/app/directives/directives.module";
 
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+
 // Material Design imports below
 import { MatListModule } from "@angular/material/list";
 import { MatCardModule } from "@angular/material/card";
@@ -19,6 +21,7 @@ import { MatButtonModule } from "@angular/material/button";
     CommonModule,
     DisplayDataRoutingModule,
     DirectivesModule,
+    FontAwesomeModule,
     MatListModule,
     MatCardModule,
     MatIconModule,
