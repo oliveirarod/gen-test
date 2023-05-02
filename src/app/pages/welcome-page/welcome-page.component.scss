@@ -1,20 +1,30 @@
-@import '../../../scss/inheritance.scss';
-@import '../../../scss/mixins.scss';
+@import "../../../scss/variables.scss";
+@import "../../../scss/inheritance.scss";
+@import "../../../scss/mixins.scss";
 
 .welcome-container {
+  @extend %background-image;
   @extend %display-flex-center;
-  height: 100%;
-  flex-direction: column;
 
-  .text-block {
-    text-align: center;
+  .welcome-content {
+    @extend %display-flex-center;
+    flex-direction: column;
 
-    .title {
-      @include title;
+    .text-block {
+      text-align: center;
+
+      .title {
+        @include title;
+      }
+
+      .paragraphs {
+        font-weight: 300;
+        line-height: 2;
+      }
     }
-  }
 
-  .button-gen {
-    margin-top: 0.75rem;
+    .button-gen {
+      margin-top: 0.75rem;
+    }
   }
 }

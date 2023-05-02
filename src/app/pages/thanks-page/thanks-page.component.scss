@@ -1,20 +1,33 @@
-@import '../../../scss/inheritance.scss';
-@import '../../../scss/mixins.scss';
+@import "../../../scss/inheritance.scss";
+@import "../../../scss/variables.scss";
+@import "../../../scss/mixins.scss";
 
 .thanks-container {
-	@extend %display-flex-center;
-	flex-direction: column;
-	text-align: justify;
-	height: 100%;
-	width: 60vw;
-	max-width: 600px;
-	margin: auto;
+  @extend %display-flex-center;
+  @extend %background-image;
+  height: 100%;
 
-	.title {
-		@include title;
-	}
+  .thanks-content {
+    width: 60vw;
+    max-width: 600px;
 
-	.paragraphs {
-		line-height: 2;
-	}
+    .title {
+      @include title;
+      text-align: center;
+    }
+
+    .paragraphs {
+      text-align: justify;
+      line-height: 2;
+      margin-bottom: 2rem;
+
+      p {
+        margin-bottom: 1.5rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
 }
