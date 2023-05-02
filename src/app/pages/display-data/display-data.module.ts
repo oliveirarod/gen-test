@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 
 import { DisplayDataRoutingModule } from "./display-data-routing.module";
 import { DisplayDataComponent } from "./display-data.component";
+import { EditDialogComponent } from "src/app/components/edit-dialog/edit-dialog.component";
 import { DirectivesModule } from "src/app/directives/directives.module";
 
 // Material Design imports below
@@ -13,7 +14,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatButtonModule } from "@angular/material/button";
 
 @NgModule({
-  declarations: [DisplayDataComponent],
+  declarations: [DisplayDataComponent, EditDialogComponent],
   imports: [
     CommonModule,
     DisplayDataRoutingModule,

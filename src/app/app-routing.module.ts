@@ -2,7 +2,6 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { WelcomePageComponent } from "./pages/welcome-page/welcome-page.component";
 
-// Create a default route to facilitate maintenance
 const DEFAULT_ROUTE = "welcome-page";
 
 const routes: Routes = [
@@ -11,13 +10,6 @@ const routes: Routes = [
     loadChildren: () =>
       import("./pages/display-data/display-data.module").then(
         (m) => m.DisplayDataModule
-      ),
-  },
-  {
-    path: "edit-dialog",
-    loadChildren: () =>
-      import("./components/edit-dialog/edit-dialog.module").then(
-        (m) => m.EditDialogModule
       ),
   },
   {
@@ -36,7 +28,7 @@ const routes: Routes = [
   },
   { path: "welcome-page", component: WelcomePageComponent },
   { path: "", redirectTo: DEFAULT_ROUTE, pathMatch: "full" },
-  { path: "**", redirectTo: DEFAULT_ROUTE, pathMatch: "full" }, // Avoids non-existent routes
+  { path: "**", redirectTo: DEFAULT_ROUTE, pathMatch: "full" },
 ];
 
 @NgModule({

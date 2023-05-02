@@ -46,3 +46,7 @@ body {
     padding: 3rem 5rem;
   }
 }
+
+::ng-deep .mat-icon-button:focus .mat-button-focus-overlay {
+  background-color: transparent !important;
+}
