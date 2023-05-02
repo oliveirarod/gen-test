@@ -14,7 +14,7 @@ describe("GetDataService", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [service],
+      providers: [GetDataService],
     });
 
     service = TestBed.inject(GetDataService);
