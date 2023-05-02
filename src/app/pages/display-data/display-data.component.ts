@@ -28,7 +28,7 @@ export class DisplayDataComponent implements OnInit {
   mockedPostImages = [
     "../../assets/office.jpg",
     "../../assets/startup.jpg",
-    "../../assets/smartphone.jpg"
+    "../../assets/smartphone.jpg",
   ];
 
   innerWidth?: number;
@@ -36,11 +36,19 @@ export class DisplayDataComponent implements OnInit {
   editIcon = faPenToSquare;
 
   // Variables to store data from user input
-  newTitle = String(this.route.snapshot.paramMap.get("newTitle"));
-  newBody = String(this.route.snapshot.paramMap.get("newBody"));
-  confirmId = String(this.route.snapshot.paramMap.get("id"));
+  newTitle = "";
+  newBody = "";
+  confirmId = "";
 
   ngOnInit(): void {
+    if (this.route?.snapshot?.paramMap) {
+      const paramMap = this.route.snapshot.paramMap;
+
+      this.newTitle = String(paramMap.get("newTitle"));
+      this.newBody = String(paramMap.get("newBody"));
+      this.confirmId = String(paramMap.get("id"));
+    }
+
     this.showPostsData();
 
     this.innerWidth = window.innerWidth;
@@ -65,7 +73,9 @@ export class DisplayDataComponent implements OnInit {
       this.postsDataFromUrl = postsData;
 
       this.postsDataFromUrl.forEach((post: Post) => {
-        const randomIndex = Math.floor(Math.random() * this.mockedPostImages.length);
+        const randomIndex = Math.floor(
+          Math.random() * this.mockedPostImages.length
+        );
 
         post.image = this.mockedPostImages[randomIndex];
 
