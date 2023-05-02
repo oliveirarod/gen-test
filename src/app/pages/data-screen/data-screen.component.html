@@ -1,27 +1,50 @@
-<!-- TODO: Melhorar visual -->
-<form>
-  <mat-form-field>
-    <mat-label>Id: </mat-label>
-    <input type="text" matInput readonly value="{{ itemData.id }}" />
-  </mat-form-field>
+<div class="form-container">
+  <div class="content-box">
+    <h1 class="title">Editing post {{ itemData.id }}</h1>
 
-  <mat-divider></mat-divider>
+    <fa-icon
+      [icon]="undoChangesIcon"
+      matTooltip="Undo Changes"
+      (click)="revertChanges()"
+    ></fa-icon>
 
-  <mat-form-field class="editableData">
-    <mat-label>Title: </mat-label>
-    <input type="text" matInput value="{{ itemData.title }}" #titleData />
-  </mat-form-field>
+    <form #editForm>
+      <div class="form-fields">
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input
+            type="text"
+            matInput
+            name="title"
+            [(ngModel)]="itemData.title"
+          />
+        </mat-form-field>
 
-  <mat-divider></mat-divider>
+        <mat-form-field appearance="fill">
+          <mat-label>Body</mat-label>
+          <textarea
+            type="text"
+            rows="5"
+            matInput
+            name="body"
+            [(ngModel)]="itemData.body"
+          ></textarea>
+        </mat-form-field>
+      </div>
 
-  <mat-form-field class="editableData">
-    <mat-label>Body: </mat-label>
-    <input type="text" matInput value="{{ itemData.body }}" #bodyData />
-  </mat-form-field>
+      <div class="action-buttons">
+        <button
+          mat-raised-button
+          class="discard-changes"
+          (click)="discardChanges()"
+        >
+          Discard changes
+        </button>
 
-  <button type="submit" (click)="applyChanges()" mat-raised-button>
-    Apply changes
-  </button>
-
-  <button mat-raised-button (click)="revertChanges()">Clear changes</button>
-</form>
+        <button type="submit" class="button-gen" (click)="applyChanges()">
+          Apply changes
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

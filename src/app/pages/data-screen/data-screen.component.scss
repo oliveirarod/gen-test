@@ -1,3 +1,78 @@
-.editableData {
-  width: 100%;
+@import "../../../scss/inheritance.scss";
+@import "../../../scss/variables.scss";
+
+.form-container {
+  @extend %background-image;
+  @extend %display-flex-center;
+
+  .content-box {
+    position: relative;
+
+    @media (max-width: 525px) {
+      width: 80%;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: 300;
+      line-height: 1.25;
+      margin-bottom: 2rem;
+
+      @media (min-width: 660px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    fa-icon {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      color: $grey-text;
+      cursor: pointer;
+
+      &:hover {
+        color: $dark-grey-text;
+      }
+
+      @media (max-width: 575px) {
+        top: 0;
+        right: 0;
+      }
+    }
+
+    form {
+      .form-fields {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .action-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        margin-top: 2rem;
+
+        @media (max-width: 525px) {
+          grid-template-columns: 1fr;
+        }
+
+        .discard-changes {
+          box-shadow: none;
+          border-radius: $button-border-radius;
+          background: #eee;
+          color: $light-grey-text;
+          font-size: 1rem;
+          font-weight: 400;
+
+          &:hover {
+            background: #e7e7e7;
+          }
+        }
+      }
+    }
+  }
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: transparent;
 }

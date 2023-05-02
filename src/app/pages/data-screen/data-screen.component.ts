@@ -1,5 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+
+import { faUndo } from "@fortawesome/free-solid-svg-icons";
+
+import { Post } from "src/app/models/Post";
 
 @Component({
   selector: "app-data-screen",
@@ -7,51 +11,50 @@ import { ActivatedRoute, Router } from "@angular/router";
   styleUrls: ["./data-screen.component.scss"],
 })
 export class DataScreenComponent implements OnInit {
-  // Recieving data from EditDialog component
-  itemDataId = this.route.snapshot.paramMap.get("itemDataId");
-  itemDataUserId = this.route.snapshot.paramMap.get("itemDataUserId");
-  itemDataTitle = this.route.snapshot.paramMap.get("itemDataTitle");
-  itemDataBody = this.route.snapshot.paramMap.get("itemDataBody");
+  // Font-awesome icons
+  undoChangesIcon = faUndo;
 
   // Organizing recieved data into itemData object
-  itemData = {
-    id: this.itemDataId,
-    userId: this.itemDataUserId,
-    title: this.itemDataTitle,
-    body: this.itemDataBody,
+  itemData: Post = {
+    id: "",
+    userId: "",
+    title: "",
+    body: "",
   };
-
-  // Getting template elements to be able to manipulate data
-  @ViewChild("titleData") titleData: ElementRef<HTMLInputElement> | undefined;
-  @ViewChild("bodyData") bodyData: ElementRef<HTMLInputElement> | undefined;
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const snapshot = this.route.snapshot.paramMap;
+
+    this.itemData = {
+      id: snapshot.get("itemDataId"),
+      userId: snapshot.get("itemDataUserId"),
+      title: snapshot.get("itemDataTitle"),
+      body: snapshot.get("itemDataBody"),
+    };
+  }
 
   // Method used to revert changes made on clicked item data
   revertChanges() {
-    this.titleData?.nativeElement.setAttribute(
-      "value",
-      String(this.itemData.title)
-    );
-    this.bodyData?.nativeElement.setAttribute(
-      "value",
-      String(this.itemData.body)
-    );
+    this.itemData.title = this.route.snapshot.paramMap.get("itemDataTitle");
+    this.itemData.body = this.route.snapshot.paramMap.get("itemDataBody");
   }
 
   //  Alters (only locally) data recieved from given URL (that is coming through DisplayDataComponent)
   applyChanges() {
-    this.itemData.title = String(this.titleData?.nativeElement.value);
-    this.itemData.body = String(this.bodyData?.nativeElement.value);
     this.router.navigate([
-      "/display-data",
+      "display-data",
       {
         newTitle: this.itemData.title,
         newBody: this.itemData.body,
         id: this.itemData.id,
       },
     ]);
+  }
+
+  discardChanges() {
+    this.revertChanges();
+    this.router.navigate(["display-data"]);
   }
 }
